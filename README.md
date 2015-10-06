@@ -29,11 +29,14 @@ Know more: https://vaultproject.io
 | url     | Hashicorp Vault Server URL with port|
 | http_connector| Name of HTTP connector which is enabeled on Flint|
 
-## Global Configuration in flint
-
+## How to use it from Flintbits
+#### Ruby
 ```ruby 
 # call the flintbit
 @result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read")
 # read the value
 value = @result.get("value")
 ```
+
+
+
