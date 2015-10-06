@@ -11,7 +11,7 @@ if key == nil
 end
 
 @log.trace("Calling Vault Server...")
-http_response = @call.connector("http")
+http_response = @call.connector(http_connector)
                   .set("method","get") #HTTP request method
                   .set("url",vault_url+"/v1/secret/"+key)
                   .set("headers",["X-Vault-Token:"+vault_token]) #Set Vault Token
