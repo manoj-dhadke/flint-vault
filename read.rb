@@ -1,13 +1,25 @@
 # reading value from Global Configuration
 vault_url = @config.global("flint-vault.url")
-vault_token = @config.global("flint-vault.token")
 http_connector = @config.global("flint-vault.http_connector")
+
+# get Valult Token from input
+vault_token = @input.get("token")
+# if token is not specified in input then read it from
+# Global Configuration
+if vault_token == nil
+  @log.debug("Reading token from Global Config")
+  vault_token = @config.global("flint-vault.token")
+end
+# Validate vault token is not nil
+if vault_token == nil
+  @output.exit(1,"Please configure or provide Vault Token")
+end
 
 @log.debug("Vault URL:"+vault_url)
 # read vault key from input
 key = @input.get("key")
 if key == nil
-  @output.exit(1,"Please provide key to read")
+  @output.exit(2,"Please provide key to read")
 end
 
 @log.trace("Calling Vault Server...")
