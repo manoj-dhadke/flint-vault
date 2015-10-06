@@ -33,7 +33,7 @@ Know more: https://vaultproject.io
 #### Ruby
 ```ruby 
 # call the flintbit
-@result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read")
+@result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read").sync
 # read the value
 value = @result.get("value")
 ```
