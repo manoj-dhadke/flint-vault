@@ -34,6 +34,9 @@ Know more: https://vaultproject.io
 ```ruby 
 # call the flintbit
 @result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read").sync
+# token can also be given at runtime
+# @result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read").set("token","afd14490-7230-e724-84d3-678863bc37ac").sync
+
 # read the value
 value = @result.get("value")
 ```
