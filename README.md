@@ -39,16 +39,16 @@ Know more: https://vaultproject.io
 # call the flintbit
 @result = @call.bit("flint-vault:read.rb").set("key","name_of_key_to_read").sync
 
+# read the value
+value = @result.get("value")
+
+
 # Alternatively token can also be given at runtime
 @result1 = @call.bit("flint-vault:read.rb")
              .set("key","name_of_key_to_read")
              .set("token","afd14490-7230-e724-84d3-678863bc37ac")
              .sync
 
-# read the value
-value = @result.get("value")
-
-# read the value
 value1 = @result1.get("value")
 ```
 
